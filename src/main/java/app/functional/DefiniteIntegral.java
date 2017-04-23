@@ -1,10 +1,15 @@
 package app.functional;
 
+import app.constants.Constants;
 import app.function.IFunction;
 import app.function.exceptions.IncorrectDomainException;
 import app.function.exceptions.OutOfDomainException;
 import app.function.exceptions.OutOfSegmentException;
 import app.functional.exceptions.SegmentOfIntegralOutOfFunctionSegment;
+import app.special_functions.Functions;
+
+import static app.special_functions.Functions.greater;
+import static app.special_functions.Functions.less;
 
 /**
  * Created by 1 on 23.04.2017.
@@ -62,7 +67,8 @@ public class DefiniteIntegral<SomeFunction extends IFunction> extends Functional
         double left = getLeftEndOfFunctionSegment(),
                 right = getRightEndOfFunctionSegment();
 
-        if (left > rightEnd || right < leftEnd) {
+        //if (left > rightEnd || right < leftEnd) {
+        if (greater(left, rightEnd) || less(right, leftEnd)) {
             throw new SegmentOfIntegralOutOfFunctionSegment();
         }
 
