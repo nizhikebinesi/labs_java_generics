@@ -37,7 +37,7 @@ public class SinFunction extends Function implements IFunction {
             throw new OutOfSegmentException("x = " + x
                     + " is out of domain: [a; b] = " + "[" + super.getLeft()
                     + "; " + super.getRight() + "]");
-        } else if (!isCorrectDomain()) {
+        } else if (!isCorrectSegment()) {
             throw new IncorrectDomainException("Incorrect domain: [a; b] = "
                     + "[" + super.getLeft() + "; " + super.getRight() + "]");
         } else {

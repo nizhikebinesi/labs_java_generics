@@ -46,7 +46,7 @@ public class Function implements IFunction {
     }
 
     @Override
-    public boolean isCorrectDomain() {
+    public boolean isCorrectSegment() {
         return left <= right;
     }
 }

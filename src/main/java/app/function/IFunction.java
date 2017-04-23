@@ -16,5 +16,5 @@ public interface IFunction {
     //double getX();
     double compute(double x) throws OutOfSegmentException, IncorrectDomainException, ArithmeticException, OutOfDomainException;
     boolean isInSegment(double x);
-    boolean isCorrectDomain();
+    boolean isCorrectSegment();
 }

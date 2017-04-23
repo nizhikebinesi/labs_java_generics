@@ -57,7 +57,7 @@ public class FractionFunction extends Function implements IFunction {
             throw new OutOfSegmentException("x = " + x
                     + " is out of segment: [a; b] = " + "[" + super.getLeft()
                     + "; " + super.getRight() + "]");
-        } else if (!isCorrectDomain()) {
+        } else if (!isCorrectSegment()) {
             throw new IncorrectDomainException("Incorrect domain: [a; b] = "
                     + "[" + super.getLeft() + "; " + super.getRight() + "]");
         } else {
