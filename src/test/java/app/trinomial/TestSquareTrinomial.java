@@ -1,11 +1,10 @@
 package app.trinomial;
 
 import app.constants.Constants;
-import app.exceptions.InfinityCountOfSolutionsException;
-import app.exceptions.IsNotEquationException;
-import app.exceptions.NegativeDiscriminantException;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import app.trinomial.SquareTrinomial;
+import app.trinomial.exceptions.InfinityCountOfSolutionsException;
+import app.trinomial.exceptions.IsNotEquationException;
+import app.trinomial.exceptions.NegativeDiscriminantException;
 import org.junit.Assert;
 import org.junit.Test;
 

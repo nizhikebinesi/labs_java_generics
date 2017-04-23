@@ -1,4 +1,4 @@
-package app.exceptions;
+package app.trinomial.exceptions;
 
 /**
  * Created by 1 on 11.04.2017.

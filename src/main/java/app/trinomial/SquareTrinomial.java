@@ -1,8 +1,8 @@
 package app.trinomial;
 
-import app.exceptions.InfinityCountOfSolutionsException;
-import app.exceptions.IsNotEquationException;
-import app.exceptions.NegativeDiscriminantException;
+import app.trinomial.exceptions.InfinityCountOfSolutionsException;
+import app.trinomial.exceptions.IsNotEquationException;
+import app.trinomial.exceptions.NegativeDiscriminantException;
 
 import java.util.ArrayList;
 
