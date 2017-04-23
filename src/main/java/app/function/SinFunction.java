@@ -41,7 +41,7 @@ public class SinFunction extends Function implements IFunction {
             throw new IncorrectDomainException("Incorrect domain: [a; b] = "
                     + "[" + super.getLeft() + "; " + super.getRight() + "]");
         } else {
-            return A * Math.sin(x) + B;
+            return A * Math.sin(B * x);
         }
     }
 }
