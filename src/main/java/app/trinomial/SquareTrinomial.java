@@ -94,4 +94,10 @@ public class SquareTrinomial {
     public void setC(double c) {
         this.c = c;
     }
+
+    @Override
+    public String toString() {
+        String s = a + " * x^2 + " + b + " * x + " + c;
+        return s;
+    }
 }

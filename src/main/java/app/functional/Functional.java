@@ -36,7 +36,6 @@ public class Functional<SomeFunction extends IFunction> implements IFunctional {
         return function.getRight();
     }
 
-    @Override
     public double compute() throws IncorrectDomainException, OutOfSegmentException, OutOfDomainException, SegmentOfIntegralOutOfFunctionSegment {
         return 0;
     }
