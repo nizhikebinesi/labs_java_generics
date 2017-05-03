@@ -33,14 +33,16 @@ public class SinFunction extends Function implements IFunction {
 
     @Override
     public double compute(double x) throws OutOfSegmentException, IncorrectDomainException, ArithmeticException {
+        if (!isCorrectSegment()) {
+            throw new IncorrectDomainException("Incorrect domain: [a; b] = "
+                    + "[" + super.getLeft() + "; " + super.getRight() + "]");
+        }
         if (!isInSegment(x)) {
             throw new OutOfSegmentException("x = " + x
                     + " is out of domain: [a; b] = " + "[" + super.getLeft()
                     + "; " + super.getRight() + "]");
-        } else if (!isCorrectSegment()) {
-            throw new IncorrectDomainException("Incorrect domain: [a; b] = "
-                    + "[" + super.getLeft() + "; " + super.getRight() + "]");
-        } else {
+        }
+        {
             return A * Math.sin(B * x);
         }
     }

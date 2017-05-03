@@ -7,7 +7,7 @@ import app.function.exceptions.OutOfSegmentException;
 /**
  * Created by 1 on 23.04.2017.
  */
-public class Function implements IFunction {
+public abstract class Function implements IFunction {
     private double left, right;
 
     public Function(double left, double right) {

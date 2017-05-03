@@ -8,12 +8,12 @@ import app.function.exceptions.OutOfSegmentException;
 import app.functional.exceptions.SegmentOfIntegralOutOfFunctionSegment;
 import app.special_functions.Functions;
 
-import static app.special_functions.Functions.greater;
-import static app.special_functions.Functions.less;
+import static app.special_functions.Functions.*;
 
 /**
  * Created by 1 on 23.04.2017.
  */
+
 public class DefiniteIntegral<SomeFunction extends IFunction> extends Functional {
     private double leftEnd, rightEnd;
     private int countOfSteps = 20;
@@ -41,7 +41,7 @@ public class DefiniteIntegral<SomeFunction extends IFunction> extends Functional
         }
         this.countOfSteps = countOfSteps;
     }
-
+//
     public double getLeftEnd() {
         return leftEnd;
     }
@@ -62,20 +62,28 @@ public class DefiniteIntegral<SomeFunction extends IFunction> extends Functional
         return  leftEnd <= rightEnd;
     }
 
+    // если отрезок не совпадает с [af; bf] -> exception
     @Override
     public double compute() throws IncorrectDomainException, OutOfSegmentException, OutOfDomainException, ArithmeticException, SegmentOfIntegralOutOfFunctionSegment {
         double left = getLeftEndOfFunctionSegment(),
                 right = getRightEndOfFunctionSegment();
 
-        //if (left > rightEnd || right < leftEnd) {
-        if (greater(left, rightEnd) || less(right, leftEnd)) {
+        if (!(greaterOrEqual(left, leftEnd) || lessOrEqual(rightEnd, right))) {
             throw new SegmentOfIntegralOutOfFunctionSegment();
         }
+        //if (left > rightEnd || right < leftEnd) {
+        /*if (greater(left, rightEnd) || less(right, leftEnd)) {
+            throw new SegmentOfIntegralOutOfFunctionSegment();
+        }*/
 
-        double a = Math.max(left, leftEnd),
-                b = Math.min(right, rightEnd),
+        double a = leftEnd,
+                b = rightEnd,
                 h = (b - a) / countOfSteps,
                 result = 0;
+
+        // for 1/x and x = 0
+        computeValueOfFunction(a);
+        computeValueOfFunction(b);
 
         for (int i = 0; i < countOfSteps; i++) {
             result += computeValueOfFunction(a + h * (i + 0.5));

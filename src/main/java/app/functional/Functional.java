@@ -9,7 +9,7 @@ import app.functional.exceptions.SegmentOfIntegralOutOfFunctionSegment;
 /**
  * Created by 1 on 23.04.2017.
  */
-public class Functional<SomeFunction extends IFunction> implements IFunctional {
+public abstract class Functional<SomeFunction extends IFunction> implements IFunctional {
     private IFunction function;
 
     public Functional(IFunction function) {
@@ -20,19 +20,13 @@ public class Functional<SomeFunction extends IFunction> implements IFunctional {
         return function.compute(x);
     }
 
-    protected double getLeftEndOfFunctionSegment() throws OutOfSegmentException {
-        if (!function.isCorrectSegment()) {
-            throw new OutOfSegmentException();
-        }
+    protected double getLeftEndOfFunctionSegment() throws OutOfSegmentException, IncorrectDomainException {
         return function.getLeft();
 
 
     }
 
-    protected double getRightEndOfFunctionSegment() throws OutOfSegmentException {
-        if (!function.isCorrectSegment()) {
-            throw new OutOfSegmentException();
-        }
+    protected double getRightEndOfFunctionSegment() throws OutOfSegmentException, IncorrectDomainException {
         return function.getRight();
     }
 

@@ -14,6 +14,24 @@ import static org.junit.Assert.assertEquals;
  * Created by 1 on 23.04.2017.
  */
 public class TestFractionFunction {
+    @Test(expected = IncorrectDomainException.class)
+    public void testComputeIncorrect() throws IncorrectDomainException, OutOfSegmentException, OutOfDomainException {
+        FractionFunction function = new FractionFunction(1, -1, 0, 1, 1, 0);
+        function.compute(0);
+    }
+
+    @Test(expected = OutOfDomainException.class)
+    public void testComputeOutOfDomain() throws IncorrectDomainException, OutOfSegmentException, OutOfDomainException {
+        FractionFunction function = new FractionFunction(0, 1, 0, 1, 1, 0);
+        function.compute(0);
+    }
+
+    @Test(expected = OutOfSegmentException.class)
+    public void testComputeOutOfSegment() throws IncorrectDomainException, OutOfSegmentException, OutOfDomainException {
+        FractionFunction function = new FractionFunction(0, 0, 2, 3, 4, 5);
+        function.compute(-1);
+    }
+
     @Test
     public void testCompute() throws OutOfSegmentException, IncorrectDomainException, OutOfDomainException {
         FractionFunction function =
